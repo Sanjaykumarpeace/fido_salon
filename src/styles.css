@@ -1160,7 +1160,8 @@
     .footer p, .footer a { color: var(--muted); font-size: .9rem; }
     .footer-col { display: grid; gap: .65rem; align-content: start; }
     .footer-col b { color: var(--ivory); font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; }
-    .legal { margin-top: 3rem; color: rgba(246,239,227,.42); font-size: .75rem; }
+    .legal { margin-top: .7rem; color: rgba(246,239,227,.5); font-size: .78rem; }
+    .footer h2 + .legal { margin-top: 3rem; }
 
     .lightbox, .success-modal {
       position: fixed;
@@ -1325,14 +1326,48 @@
       .intro-band, .values, .service-grid, .team-grid, .experience-grid, .transform-grid, .form-grid, .quiz-options { grid-template-columns: 1fr; }
       .metric { border-right: 0; border-bottom: 1px solid var(--hairline); }
       .metric:last-child { border-bottom: 0; }
-      .editorial-stack { min-height: 520px; }
-      .editorial-stack img:first-child { width: 78%; }
-      .editorial-stack img:nth-child(2) { width: 62%; }
+      .editorial-stack {
+        min-height: auto;
+        display: grid;
+        gap: 1rem;
+        padding-bottom: 0;
+      }
+      .editorial-stack img {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: auto;
+      }
+      .editorial-stack img:first-child {
+        width: 88%;
+        aspect-ratio: 4 / 3;
+      }
+      .editorial-stack img:nth-child(2) {
+        width: 78%;
+        aspect-ratio: 4 / 5;
+        margin-top: -4.5rem;
+        margin-left: auto;
+        z-index: 1;
+      }
+      .signature-card {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        z-index: 2;
+        width: 100%;
+        margin-top: .25rem;
+        padding: 1.25rem;
+      }
+      .signature-card b {
+        font-size: clamp(2.15rem, 10vw, 3.15rem);
+        line-height: 1.06;
+      }
+      .signature-card span { font-size: 1rem; }
       .service-card.large, .service-card.small { grid-column: auto; min-height: 390px; }
       .bridal-image, .quiz-visual { min-height: 430px; }
       .slots { grid-template-columns: repeat(2, 1fr); }
-      .floating { right: 1rem; bottom: 5.4rem; }
-      .mobile-book { display: block; }
+      .floating { display: none; }
+      .mobile-book { display: none; }
       .mobile-book .btn { width: 100%; box-shadow: 0 20px 50px rgba(0,0,0,.5); }
     }
 
@@ -1346,5 +1381,9 @@
       .hero-copy { font-size: .98rem; }
       .btn { min-height: 50px; font-size: .7rem; letter-spacing: .14em; padding-inline: 1rem; }
       .floating { right: .75rem; }
-      .float { width: 50px; height: 50px; }
+      .float { width: 46px; height: 46px; }
+      .editorial-stack img:first-child { width: 94%; }
+      .editorial-stack img:nth-child(2) { width: 82%; margin-top: -3.5rem; }
+      .signature-card { padding: 1.1rem; }
+      .signature-card b { font-size: clamp(1.95rem, 10.5vw, 2.75rem); }
     }

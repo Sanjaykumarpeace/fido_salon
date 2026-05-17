@@ -16,12 +16,15 @@
 
     const updateScrollChrome = () => {
       $("#nav")?.classList.toggle("scrolled", window.scrollY > 36);
-      $(".mobile-book")?.classList.toggle("visible", window.scrollY > Math.min(720, window.innerHeight * .72));
+      const mobileBookStart = window.innerWidth <= 720 ? 2600 : Math.min(720, window.innerHeight * .72);
+      $(".mobile-book")?.classList.toggle("visible", window.scrollY > mobileBookStart);
       $(".floating")?.classList.toggle("visible", window.scrollY > Math.min(620, window.innerHeight * .58));
       const heroMedia = $(".hero-media video, .hero-media img");
       if (heroMedia && window.innerWidth > 900) heroMedia.style.transform = `scale(1.03) translateY(${window.scrollY * .04}px)`;
     };
     window.addEventListener("scroll", updateScrollChrome, { passive: true });
+    window.addEventListener("hashchange", () => setTimeout(updateScrollChrome, 80));
+    window.addEventListener("resize", updateScrollChrome, { passive: true });
     updateScrollChrome();
 
     const menuBtn = $("#menuBtn");
